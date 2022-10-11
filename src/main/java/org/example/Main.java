@@ -32,10 +32,13 @@ public class Main {
         // queues are interfaces, we cannot implement them directly therefore we need to
         // utilize a class that implements the Queue as LinkedList or PriorityQueue
 
+
+
         // Linked list implements the Queue interface. this is a demo of how a linked
         // list works:
 
         Queue<Double> LinkedListTickets = new LinkedList<>();
+        // offer comes from the queue collection: both insert elements into the Queue
 
         LinkedListTickets.offer(33.0);
         LinkedListTickets.offer(155.70);
@@ -50,8 +53,10 @@ public class Main {
             System.out.println("LinkedList Tickets: " + LinkedListTickets.poll());
 
         }
-        System.out.println("###########################");
 
+
+        System.out.println("###########################");
+                
         PriorityQueue<Double> tickets = new PriorityQueue<>();
 
         tickets.offer(33.0);
@@ -62,13 +67,13 @@ public class Main {
 
         while (!tickets.isEmpty()) {
 
-            System.out.println("Tickets: " + tickets.poll());
+            System.out.println("PriorityQueue Tickets: " + tickets.poll());
 
         }
         System.out.println("###########################");
 
         // we can use a default comparator from collection interface: reverseOrder();
-
+        //returned in reverse order because we used the Collections.reverse interface:
         PriorityQueue<Double> reversedTickets = new PriorityQueue<>(Collections.reverseOrder());
 
         reversedTickets.offer(33.0);
@@ -79,21 +84,24 @@ public class Main {
 
         while (!reversedTickets.isEmpty()) {
 
-            System.out.println("Reversed Tickets: " + reversedTickets.poll());
+            System.out.println("PriorityQueue Reversed Tickets: " + reversedTickets.poll());
             System.out.println("the next head is: " + reversedTickets.peek());
 
         }
         System.out.println("###########################");
 
-        // Strings in reverse order
+        // Strings returned in reverse order because we used the Collections.reverse interface
         PriorityQueue<String> names = new PriorityQueue<>(Collections.reverseOrder());
 
         names.offer("Billy");
         names.offer("Cameron");
         names.offer("Alex");
         names.offer("Fido");
+        names.offer("sandy");
+        names.offer("danny");
         names.offer("Danny");
 
+        // returns a boolean true or false
        System.out.println("is Fido removed? " + names.remove("Fido"));
 
         while (!names.isEmpty()) {
@@ -102,7 +110,7 @@ public class Main {
         }
         System.out.println("###########################");
 
-
+        // compare object ids
         PriorityQueue<Employee> priorityQueue = new PriorityQueue<>();
 
         priorityQueue.add(new Employee(1l, "Vickey", LocalDate.now()));
